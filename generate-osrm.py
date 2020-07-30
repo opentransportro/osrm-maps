@@ -146,6 +146,12 @@ def main():
                  "osrm-customize", "/data/map.osrm"
                  ])
 
+    run_command(["docker", "run", "-t",
+                 "-v", f"{app_path}:/data",
+                 "osrm/osrm-backend",
+                 "chmod", "-R", "a+r", "/data/"
+                 ])
+
     rg = ReleaseGenerator(GH_REPO, GH_TOKEN)
     rg.generate(glob.glob(os.path.join(app_path, "*.osrm*")))
 
