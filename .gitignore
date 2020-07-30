@@ -1,0 +1,4 @@
+*.osrm*
+.idea
+venv
+map.pbf
